@@ -4,10 +4,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AttachMoney
 import androidx.compose.material.icons.rounded.Refresh
@@ -30,7 +27,9 @@ fun InputField(
     isSingleLine: Boolean,
     keyboardType: KeyboardType = KeyboardType.Number,
     imeAction: ImeAction = ImeAction.Next,
-    onAction: KeyboardActions = KeyboardActions.Default
+    onAction: KeyboardActions = KeyboardActions.Default,
+    colors: TextFieldColors = TextFieldDefaults.textFieldColors(),
+    labelTextColor: Color = MaterialTheme.colors.onBackground
 ) {
     OutlinedTextField(
         value = valueState.value,
@@ -55,6 +54,7 @@ fun InputField(
             keyboardType = keyboardType,
             imeAction = imeAction
         ),
-        keyboardActions = onAction
+        keyboardActions = onAction,
+        colors = colors
     )
 }
